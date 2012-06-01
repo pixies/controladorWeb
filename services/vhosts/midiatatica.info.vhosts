@@ -1,0 +1,14 @@
+#NameVirtualHost *:80
+<VirtualHost *>
+   ServerName midiatatica.info
+   ServerAlias www.midiatatica.info
+   ServerAlias midiatatica.info
+   ServerAdmin ruiz@descentro.org
+   DocumentRoot /aletta/sitios/midiatatica.info/htdocs-prod
+   ErrorLog /var/log/httpd/midiatatica.info_error_log
+   CustomLog /var/log/httpd/midiatatica.info_access_log commom
+   <Directory /aletta/sitios/midiatatica.info/htdocs-prod>
+        Options FollowSymLinks
+        AllowOverride None
+   </Directory>
+</VirtualHost>

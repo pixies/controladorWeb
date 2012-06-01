@@ -1,0 +1,14 @@
+#NameVirtualHost *:80
+<VirtualHost *>
+   ServerName descentro.org
+   ServerAlias www.descentro.org
+   ServerAlias descentro.org
+   ServerAdmin ruiz@descentro.org
+   DocumentRoot /aletta/sitios/descentro.org/htdocs-prod
+   ErrorLog /var/log/httpd/descentro.org_error_log
+   CustomLog /var/log/httpd/descentro.org_access_log commom
+   <Directory "/aletta/sitios/descentro.org/htdocs-prod">
+        Options FollowSymLinks 
+        AllowOverride None
+   </Directory>
+</VirtualHost>

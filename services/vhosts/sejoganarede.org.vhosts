@@ -1,0 +1,20 @@
+#NameVirtualHost *:80
+<VirtualHost *>
+   ServerName sejoganarede.org
+   ServerAlias www.sejoganarede.org
+   ServerAlias sejoganarede.org
+   ServerAdmin boreste@gmail.com
+   DocumentRoot /aletta/sitios/sejoganarede.org/htdocs-prod
+   ErrorLog /var/log/httpd/sejoganarede.org_error_log
+   CustomLog /var/log/httpd/sejoganarede.org_access_log commom
+   <Directory /aletta/sitios/sejoganarede.org/htdocs-prod>
+        Options FollowSymLinks
+        AllowOverride None
+   RewriteEngine on
+   RewriteBase /
+   RewriteCond %{REQUEST_FILENAME} !-f
+   RewriteCond %{REQUEST_FILENAME} !-d
+   RewriteRule ^(.*)$ index.php?q=$1 [L,QSA]
+
+   </Directory>
+</VirtualHost>

@@ -1,0 +1,13 @@
+#NameVirtualHost *:80
+<VirtualHost *>
+   ServerName submidialogia.descentro.org
+   ServerAlias www.submidialogia.descentro.org
+   ServerAdmin ruiz@descentro.org
+   DocumentRoot /aletta/sitios/submidialogia.descentro.org/htdocs-prod
+   ErrorLog /var/log/httpd/submidialogia.descentro.org_error_log
+   CustomLog /var/log/httpd/submidialogia.descentro.org_access_log commom
+   <Directory "/aletta/sitios/submidialogia.descentro.org/htdocs-prod">
+        Options FollowSymLinks 
+        AllowOverride None
+   </Directory>
+</VirtualHost>

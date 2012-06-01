@@ -1,0 +1,14 @@
+#NameVirtualHost *:80
+<VirtualHost *>
+   ServerName rbrazileiro.descentro.org
+   ServerAlias www.rbrazileiro.descentro.org
+   ServerAlias rbrazileiro.descentro.org
+   ServerAdmin rbrazileiro@gmail.com
+   DocumentRoot /aletta/sitios/rbrazileiro.descentro.org/htdocs-prod
+   ErrorLog /var/log/httpd/rbrazileiro.descentro.org_error_log
+   CustomLog /var/log/httpd/rbrazileiro.descentro.org_access_log commom
+   <Directory /aletta/sitios/rbrazileiro.descentro.org/htdocs-prod>
+        Options FollowSymLinks
+        AllowOverride None
+   </Directory>
+</VirtualHost>

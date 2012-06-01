@@ -1,0 +1,18 @@
+#NameVirtualHost *:80
+<VirtualHost *>
+   ServerName aletta.descentro.org
+   ServerAlias www.aletta.descentro.org
+   ServerAlias aletta.descentro.org
+   ServerAdmin pixies@riseup.net
+   DocumentRoot /aletta/sitios/aletta.descentro.org/htdocs-prod
+   ErrorLog /var/log/httpd/aletta.descentro.org_error_log
+   CustomLog /var/log/httpd/aletta.descentro.org_access_log commom
+   <Directory /aletta/sitios/aletta.descentro.org/htdocs-prod>
+        Options FollowSymLinks
+        AllowOverride All
+   </Directory>
+	<IfModule cband_module>
+	CBandSpeed 100000mbps 1000 100
+	CBandLimit 10000M
+	</IfModule>
+</VirtualHost>

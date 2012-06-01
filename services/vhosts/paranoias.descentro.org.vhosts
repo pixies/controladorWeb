@@ -1,0 +1,37 @@
+#NameVirtualHost *:80
+<VirtualHost *>
+   ServerName paranoias.descentro.org
+   ServerAlias www.paranoias.descentro.org
+   ServerAlias paranoias.descentro.org
+   ServerAdmin ruiz@descentro.org
+   DocumentRoot /aletta/sitios/paranoias.descentro.org/htdocs-prod
+   ErrorLog /var/log/httpd/descentro.org_error_log
+   CustomLog /var/log/httpd/descentro.org_access_log combined
+   <Directory "/aletta/sitios/descentro.org/htdocs-prod">
+	Options FollowSymLinks 
+	AllowOverride all
+	Order deny,allow 
+	Deny from all
+   </Directory>
+
+<Directory "/aletta/sitios/paranoias.descentro.org/cgi-bin/vqadmin">
+deny from all
+Options ExecCGI FollowSymLinks
+AllowOverride AuthConfig
+Order deny,allow
+</Directory>
+
+
+Alias /awstatsclasses "/var/www/sitios/paranoias.descentro.org/wwwroot/classes/"
+Alias /awstatscss "/var/www/sitios/paranoias.descentro.org/wwwroot/css/"
+Alias /awstatsicons "/var/www/sitios/paranoias.descentro.org/wwwroot/icon/"
+ScriptAlias /awstats/ "/var/www/sitios/paranoias.descentro.org/wwwroot/cgi-bin/"
+
+<Directory "/var/www/sitios/paranoias.descentro.org/wwwroot">
+Options None FollowSymLinks
+AllowOverride None
+Order allow,deny
+Allow from all
+</Directory> 
+
+</VirtualHost>

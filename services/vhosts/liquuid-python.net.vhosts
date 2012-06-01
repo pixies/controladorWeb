@@ -1,0 +1,22 @@
+#NameVirtualHost *:80
+<VirtualHost *>
+   ServerName liquuid.net
+   ServerAlias www.liquuid.net
+   ServerAlias liquuid.net
+   ServerAdmin liquuid@gmail-spam.com
+   DocumentRoot /aletta/sitios/metareciclagem.org/htdocs/liquuid 
+   ErrorLog /var/log/httpd/liquuid.net_error_log
+   CustomLog /var/log/httpd/liquuid.net_access_log commom
+   <Directory "/aletta/sitios/metareciclagem.org/htdocs/liquuid">
+        Options FollowSymLinks 
+        AllowOverride None
+   </Directory>
+<Location "/">
+SetHandler python-program
+PythonPath "['/home/liquuid'] + sys.path"
+PythonHandler django.core.handlers.modpython
+SetEnv DJANGO_SETTINGS_MODULE dlog.settings
+PythonDebug On
+</Location>
+
+</VirtualHost>

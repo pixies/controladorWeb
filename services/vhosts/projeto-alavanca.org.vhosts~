@@ -1,0 +1,13 @@
+#NameVirtualHost *:80
+<VirtualHost *>
+   ServerName projeto-alavanca.org
+   ServerAlias www.projeto-alavanca.org
+   ServerAdmin walrusATvideo.if.usp.br
+   DocumentRoot /aletta/sitios/metareciclagem.org/htdocs/liquuid 
+   ErrorLog /var/log/httpd/projeto-alavanca.org_error_log
+   CustomLog /var/log/httpd/projeto-alavanca.org_access_log commom
+   <Directory "/aletta/sitios/metareciclagem.org/htdocs/liquuid/">
+        Options FollowSymLinks 
+        AllowOverride None
+   </Directory>
+</VirtualHost>

@@ -1,0 +1,14 @@
+#NameVirtualHost *:80
+<VirtualHost *>
+   ServerName autolabs.midiatatica.info
+   ServerAlias www.autolabs.midiatatica.info
+   ServerAlias autolabs.midiatatica.info
+   ServerAdmin ruiz@descentro.org
+   DocumentRoot /aletta/sitios/autolabs.midiatatica.info/htdocs-prod
+   ErrorLog /var/log/httpd/autolabs.midiatatica.info_error_log
+   CustomLog /var/log/httpd/autolabs.midiatatica.info_access_log commom
+   <Directory /aletta/sitios/autolabs.midiatatica.info/htdocs-prod>
+        Options FollowSymLinks
+        AllowOverride None
+   </Directory>
+</VirtualHost>

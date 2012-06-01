@@ -1,0 +1,14 @@
+#NameVirtualHost *:80
+<VirtualHost *>
+   ServerName digitofagia.midiatatica.info
+   ServerAlias www.digitofagia.midiatatica.info
+   ServerAlias digitofagia.midiatatica.info
+   ServerAdmin ruiz@descentro.org
+   DocumentRoot /aletta/sitios/digitofagia.midiatatica.info/htdocs-prod
+   ErrorLog /var/log/httpd/digitofagia.midiatatica.info_error_log
+   CustomLog /var/log/httpd/digitofagia.midiatatica.info_access_log commom
+   <Directory /aletta/sitios/digitofagia.midiatatica.info/htdocs-prod>
+        Options FollowSymLinks
+        AllowOverride None
+   </Directory>
+</VirtualHost>

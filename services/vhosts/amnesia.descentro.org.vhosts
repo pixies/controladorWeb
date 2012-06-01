@@ -1,0 +1,16 @@
+#NameVirtualHost *:80
+<VirtualHost *>
+
+ServerName amnesia.descentro.org
+ServerAlias www.amnesia.descentro.org
+ServerAlias amnesia.descentro.org
+ServerAdmin pixies@riseup.net
+DocumentRoot /aletta/sitios/amnesia.descentro.org/htdocs-prod
+ErrorLog /var/log/httpd/amnesia.descentro.org_error_log
+CustomLog /var/log/httpd/amnesia.descentro.org_access_log commom
+
+Options FollowSymLinks
+#AllowOverride None
+
+</VirtualHost>
+

@@ -1,0 +1,24 @@
+#NameVirtualHost *:80
+<VirtualHost *>
+   ServerName metareciclagem.org
+   ServerAlias www.metareciclagem.org
+   ServerAdmin ruiz@descentro.org
+   DocumentRoot /aletta/sitios/metareciclagem.org/htdocs-prod
+   ErrorLog /var/log/httpd/metareciclagem.org_error_log
+   CustomLog /var/log/httpd/metareciclagem.org_error_log commom
+   <Directory "/aletta/sitios/metarecilcagem.org/htdocs-prod">
+	Options +Includes +FollowSymlinks -Indexes
+	Options +FollowSymLinks 
+	Options +Indexes
+	AllowOverride all
+	order allow,deny
+	allow from all
+        Options Includes MultiViews
+	RewriteEngine On
+   </Directory>
+        <IfModule cband_module>
+           CBandSpeed 1000000Kbps 1000 1000
+           CBandLimit 10000M
+        </IfModule>
+</VirtualHost>
+

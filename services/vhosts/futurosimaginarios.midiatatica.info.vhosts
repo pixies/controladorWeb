@@ -1,0 +1,14 @@
+#NameVirtualHost *:80
+<VirtualHost *>
+   ServerName futurosimaginarios.midiatatica.info
+   ServerAlias www.futurosimaginarios.midiatatica.info
+   ServerAlias futurosimaginarios.midiatatica.info
+   ServerAdmin ruiz@descentro.org
+   DocumentRoot /aletta/sitios/futurosimaginarios.midiatatica.info/htdocs-prod
+   ErrorLog /var/log/httpd/futurosimaginarios.midiatatica.info_error_log
+   CustomLog /var/log/httpd/futurosimaginarios.midiatatica.info_access_log commom
+   <Directory /aletta/sitios/futurosimaginarios.midiatatica.info/htdocs-prod>
+        Options FollowSymLinks
+        AllowOverride None
+   </Directory>
+</VirtualHost>
