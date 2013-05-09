@@ -1,0 +1,10 @@
+#v1
+#Controle de atividades a fazer do controladorWeb
+#
+#Cada item é uma atividade, deve ser executada individualmente e commitada!
+
+1. Remover o diretirios sitios/ não deveria esta aqui!
+2. Remover o diretorio vhost dentro do diretorio services, services/vhost
+3. Scripts não estáveis devem ficar dentro do diretorio services/unstable/
+4. Implementar script de backup.
+5. Construir instalador/facilitador para a instalação do controladorWeb. 
