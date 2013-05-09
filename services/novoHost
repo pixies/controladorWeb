@@ -1,60 +1,72 @@
 #!/bin/bash
-# script para a criacao de vhosts no padrao de instalacao aletta
-# para o uso, digite ./criarvhost nomedovhost.org emailadmin@server.org
+# script para a criacao de hosts
+# para o uso, digite ./criarvhost usuario nomedovhost.org emailadmin@server.org
+#
+# IMPORTANTE - (Primeira versão escrito by vitoriamario)
 # 
-# escrito por vitoriamario
-# use este script como achar melhor. permitido a copia e modificacao
+# Versão atual, 0.1
+# Mantenedor: pixies
+# Licença: GPL
+#
+#
 
 #verifica se o parametro nomedovhost foi digitado
 if test $# = 0
 then
 	echo ERRO:: SINTAXE MAL FORMADA:
-	echo Utilize ./criarvhost nomedovhost.org emailadmin@server.org
+	echo Utilize ./criarvhost usuario nomedovhost.org emailadmin@server.org
 	exit 1
 fi
 
-# cria pastas htdocs
-cd /var/controladorWeb/sitios
-mkdir -p $1/htdocs-prod
+#Configurando nivel usuario
+cd /home/$1
+mkdir -p $2/site
+mkdir -p $2/log/apache
+
+# Ativando pastas htdocs
+cd $2
+ln -s site public_html
+cd ..
 
 #criacao de vhost
 echo "
 <VirtualHost *:80>
-   ServerName $1
-   ServerAlias www.$1
-   ServerAdmin $2
-   DocumentRoot /var/controladorWeb/sitios/$1/htdocs-prod
-   ErrorLog /var/log/apache2/$1_error_log
-   CustomLog /var/log/apache2/$1_access_log combined
-   <Directory "/var/controladorWeb/sitios/$1/htdocs-prod">
+   ServerName $2
+   ServerAlias $2
+   ServerAdmin $3
+   DocumentRoot /home/$1/$2/public_html
+   ErrorLog /home/$1/$2/log/apache/$2_error_log
+   CustomLog /home/$1/$2/log/apache/$2_access_log combined
+   <Directory "/home/$1/$2/public_html">
          Options -Indexes FollowSymLinks MultiViews Includes
          AllowOverride All
          Order allow,deny
          Allow from all
    </Directory>
-</VirtualHost>" > /etc/apache2/vhosts/$1.vhosts
+</VirtualHost>" > /etc/apache2/vhosts/$2.vhosts
 
 #criacao dos arquivos de log
-touch /var/log/apache2/$1_error_log
-touch /var/log/apache2/$1_access_log
-
+touch /home/$1/$2/log/apache/$2_error_log
+touch /home/$1/$2/log/apache/$2_access_log
 
 #criar index - 403 forbinden
-echo "$1 <br> adm: $2" > /var/controladorWeb/sitios/$1/htdocs-prod/index.html
+echo "<h1>$2</h1> <br> adm: $3" > /home/$1/$2/site/index.html
+
+#mudando permisao do diretorio
+chown $1.$1 /home/$1/ -R
 
 # modifica permissoes dos arquivos criados
-chmod 755 /var/controladorWeb/sitios/$1/htdocs-prod -R
-chown www-data.www-data /var/controladorWeb/sitios/$1/htdocs-prod -R
+chmod 755 /home/$1/$2/public_html -R
+chown www-data.www-data /home/$1/$2/public_html -R
 
 #reiniciar apache
 apache2ctl restart
 
 #voltar para o diretorio /var/controladorWeb/services
-cd /var/controladorWeb/services
+cd /opt/controladorWeb/services
 
 #criar conf do awstats
 #/var/controladorWeb/services/criaAWstats.sh
 
 #manda acessar
-echo "acesse agora pelo seu browser favorito http://$1"
-
+echo "acesse agora pelo seu browser favorito http://$2"
