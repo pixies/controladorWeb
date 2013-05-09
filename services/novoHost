@@ -1,6 +1,9 @@
 #!/bin/bash
 # script para a criacao de hosts
-# para o uso, digite ./criarvhost usuario nomedovhost.org emailadmin@server.org
+# para o uso, digite ./criarvhost <usuario> <nomedohost> <email do admin>
+# <usuario> -> Usuario no GNU/Linux
+# <nomedohost> -> Nome do host a ser adcionado
+# <email do admin> -> E-mail de quem vai administrar o host
 #
 # IMPORTANTE - (Primeira versão escrito by vitoriamario)
 # 
@@ -14,7 +17,7 @@
 if test $# = 0
 then
 	echo ERRO:: SINTAXE MAL FORMADA:
-	echo Utilize ./criarvhost usuario nomedovhost.org emailadmin@server.org
+	echo Utilize ./criarvhost <usuario> <nomedovhost.org> <emailadmin@server.org>
 	exit 1
 fi
 
