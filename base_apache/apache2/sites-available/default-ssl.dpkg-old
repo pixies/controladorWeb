@@ -1,5 +1,0 @@
-NameVirtualHost *:443
-<VirtualHost *:443>
-SSLEngine On
-SSLCertificateFile /etc/ssl/certs/apache.pem
-</VirtualHost>
