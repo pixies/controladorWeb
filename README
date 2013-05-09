@@ -1,0 +1,17 @@
+#ControladorWeb
+#Sistema de Controle Web para gerenciamento de WebHosts!
+#Versão: 0.1
+#Licença: LGPL3
+#
+#
+# O que ela faz?
+# Otimiza recursos do apache2 oferecendo mais conforto no gerenciamento de HostVistuais ao administrador.
+#
+# Quem desenvolve?
+# Atualmente eu "pixies" venho otimizando os scripts e o Izaac Filho vem fazendo alguns testes também! Precisamos de mais amigos!
+#
+# Como surgio a ideia?
+# Dentro da rede de servidores livres, Ananias Filho aka kram3r implementou um conjunto de scripts os quais venho otimizando.
+#
+
+
