@@ -13,3 +13,4 @@
 5. Construir instalador/facilitador para a instalação do controladorWeb. 
 6. Criar diretorio apache_dev e colocar a base do apache compactada dentro dele.
    CONCLUIDO
+7. Modificacao na estrutura do .git removido o diretorio .git/obects/pack/
